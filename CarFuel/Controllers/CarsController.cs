@@ -13,13 +13,11 @@ namespace CarFuel.Controllers
 {
     public class CarsController : Controller
     {
-        private ICarDb db;
-        private CarService carService;
+        private readonly ICarService carService;
 
-        public CarsController()
+        public CarsController(ICarService carService)
         {
-            db = new CarDb();
-            carService = new CarService(db);
+            this.carService = carService;
         }
 
         [Authorize]
